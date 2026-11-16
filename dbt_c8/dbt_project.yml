@@ -1,0 +1,26 @@
+name: dbt_c8
+
+profile: dbt_c8
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+seeds:
+  # Builds seeds into '<your_schema_name>_raw'
+  dbt_c8:
+    +schema: raw
+
+models:
+  dbt_c8:
+    +static_analysis: strict
+    # Materialize staging models as views, and marts as tables
+    silver:
+      +materialized: table
+      +schema: silver
+    gold:
+      +materialized: table
+      +schema: gold
