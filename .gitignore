@@ -14,7 +14,7 @@ dbt_packages/
 dbt_internal_packages/
 logs/
 target/
+secrets/
 .env
 profiles.yml
-secrets/
 *.json

@@ -28,7 +28,7 @@ dbt compile --select check_amount
 - **Compiled SQL:** `target/compiled/dbt_c7/analyses/check_amount.sql`
 - **BigQuery Result:** `0 rows` (`amount` matches `sale_price * quantity` across all records).
 
-## 3. Lineage & Documentation
+## 3. Lineage & Git
 
 Generate and serve project documentation & DAG lineage:
 
