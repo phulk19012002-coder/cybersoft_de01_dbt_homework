@@ -9,10 +9,10 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-seeds:
-  # Builds seeds into '<your_schema_name>_raw'
-  dbt_c8:
-    +schema: raw
+# seeds:
+#   # Builds seeds into '<your_schema_name>_raw'
+#   dbt_c8:
+#     +schema: raw
 
 models:
   dbt_c8:

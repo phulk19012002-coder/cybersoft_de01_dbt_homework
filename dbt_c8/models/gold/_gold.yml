@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: daily_revenue
+    description: Doanh thu theo ngày
+  - name: gold_revenue_by_month_category
+    description: Một dòng là một cặp tháng đặt đơn và category, kèm doanh thu và lợi nhuận (không tính đơn Cancelled và Returned).
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [order_month, category]
+    columns:  
+      - name: order_month
+        data_tests:
+          - not_null
+      - name: category
+        data_tests:
+          # Lý do chọn severity warn: Sản phẩm thiếu category vẫn cần giữ lại trong báo cáo để tổng doanh thu không bị hụt, chỉ cảnh báo để bổ sung category ở nguồn
+          - not_null:
+              config:
+                severity: warn
+      - name: revenue
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
