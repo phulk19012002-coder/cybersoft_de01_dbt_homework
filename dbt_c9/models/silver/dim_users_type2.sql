@@ -1,0 +1,20 @@
+select
+    scd_id as user_key,
+    id as user_id,
+    first_name,
+    last_name,
+    email,
+    age,
+    gender,
+    country,
+    state,
+    city,
+    street_address,
+    postal_code,
+    latitude,
+    longitude,
+    traffic_source,
+    valid_from,
+    valid_to,
+    valid_to is null as is_current
+from {{ ref('users_snapshot') }}

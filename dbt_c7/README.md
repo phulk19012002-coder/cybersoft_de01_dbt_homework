@@ -1,4 +1,4 @@
-# StyleHub dbt — Session 7 Homework (`dbt_c7`)
+# StyleHub dbt — Chapter 7 Homework (`dbt_c7`)
 
 ## 0. Đầu vào cần có
 

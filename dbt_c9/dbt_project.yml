@@ -1,0 +1,29 @@
+name: dbt_c9
+
+profile: dbt_c9
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+on-run-end:
+  - "{{ log_bytes_processed() }}"
+
+# seeds:
+#   # Builds seeds into '<your_schema_name>_raw'
+#   dbt_c9:
+#     +schema: raw
+
+models:
+  dbt_c9:
+    +static_analysis: strict
+    silver:
+      +materialized: table
+      +schema: silver
+    gold:
+      +materialized: table
+      +schema: gold

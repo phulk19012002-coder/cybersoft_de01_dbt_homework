@@ -1,4 +1,4 @@
-# StyleHub dbt — Session 8 Homework (`dbt_c8`)
+# StyleHub dbt — Chapter 8 Homework (`dbt_c8`)
 
 ## 0. Đầu vào cần có
 
